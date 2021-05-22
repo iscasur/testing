@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-family: system-ui;
+        font-size: 62.5%;
+      }
+      .initBar {
+        background: #ff4545;
+        color: #eee;
+        text-align: center;
+        padding: 3rem 0;
+        position: relative;
+        font-size: 1.6rem;
+        transition: display 1s;
+      }
+      .initBar__content {
+        margin: 0 auto;
+        max-width: 900px;
+      }
+      .initBar__content a {
+        color: #fff;
+        font-weight: 600;
+      }
+      .initBar__content button {
+        position: absolute;
+        background: transparent;
+        border: 0;
+        border-radius: 50%;
+        padding: 0.5rem 0.7rem;
+        outline: none;
+        font-weight: 600;
+        color: #eee;
+        right: 1rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="initBar">
+      <div class="initBar__content">
+        <p id="text">
+          <span id="description"></span>
+          <a href="#" id="link">¡Clic aquí!</a>
+          <button id="close-btn">X</button>
+        </p>
+      </div>
+    </section>
+
+    <script>
+      const ads = [
+        {
+          name: 'XMLSAT Premium',
+          description:
+            'Administración Masiva de archivos XML – Herramienta para la Contabilidad Electrónica.',
+          url: 'https://todoconta.com/xmlsatp',
+        },
+        {
+          name: 'XML a CTPQi',
+          description:
+            'Contabiliza todos tus archivos XML y genera pólizas listas para ser importadas Contpaq i® Contabilidad.',
+          url: 'https://todoconta.com/xmlcontpaqi',
+        },
+        {
+          name: 'Cursos y talleres',
+          description: 'Accede a nuestros cursos y talleres',
+          url: 'https://todoconta.com/taller',
+        },
+      ];
+
+      const adBar = document.querySelector('.initBar');
+      const description = document.getElementById('description');
+      const link = document.getElementById('link');
+      const closeBtn = document.getElementById('close-btn');
+
+      const randomNumber = Math.floor(Math.random() * ads.length);
+
+      description.innerText = ads[randomNumber].description;
+      link.setAttribute('href', ads[randomNumber].url);
+
+      closeBtn.addEventListener('click', function () {
+        adBar.style.display = 'none';
+      });
+    </script>
+  </body>
+</html>
